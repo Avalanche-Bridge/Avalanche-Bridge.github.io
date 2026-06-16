@@ -1,0 +1,107 @@
+{
+ "keyword": "avalanche bridge",
+ "h1": "Avalanche Bridge",
+ "brand": "Avalanche Bridge",
+ "niche": "bridge",
+ "verb": "Bridge",
+ "title": "Avalanche Bridge - Open App",
+ "meta_description": "avalanche bridge opens Core for Ethereum-to-Avalanche transfers, wallet connection, fee review, and official routing to the app.",
+ "palette": {
+  "mode": "dark",
+  "bg": "#0B0B0C",
+  "accent": "#E84142",
+  "ink": "#FFFFFF"
+ },
+ "hero_h2": "Move assets between Ethereum and Avalanche in Core",
+ "hero_lead": "avalanche bridge is the official cross-chain route in Core for moving supported Ethereum assets to Avalanche C-Chain with wallet-based approvals and fee review before you confirm.",
+ "badge": "Avalanche",
+ "widget": {
+  "from": "ETH",
+  "from_net": "Ethereum",
+  "to": "AVAX / tokens",
+  "to_net": "Avalanche C-Chain",
+  "action": "Open Core App"
+ },
+ "trust": [
+  "Official Core app route",
+  "Ethereum and Avalanche support",
+  "Fees shown before confirmation"
+ ],
+ "what_is": "Avalanche Bridge is the official bridging experience surfaced through Core for moving supported assets between Ethereum and Avalanche. See the <a href=\"https://support.avax.network/en/collections/3073022-avalanche-bridge\">Avalanche Bridge support docs</a> for current guidance.",
+ "how": [
+  {
+   "t": "Open Core",
+   "d": "Use the official Core bridge page and connect the wallet that holds the asset you want to move."
+  },
+  {
+   "t": "Choose networks",
+   "d": "Select Ethereum or Avalanche as the source, then pick the destination network and supported token."
+  },
+  {
+   "t": "Review details",
+   "d": "Check the displayed route, estimated fees, destination address, and any token-specific notes before signing."
+  },
+  {
+   "t": "Confirm transfer",
+   "d": "Approve the wallet transaction and track completion from Core or the relevant network explorer."
+  }
+ ],
+ "points": [
+  {
+   "h": "Built for Core users",
+   "p": "The bridge flow lives inside Core, Ava Labs' wallet app for managing, sending, swapping, and bridging crypto."
+  },
+  {
+   "h": "Network-aware routing",
+   "p": "Transfers are shown with source and destination networks so users can verify they are using Ethereum and Avalanche C-Chain correctly."
+  },
+  {
+   "h": "Support-backed guidance",
+   "p": "Avalanche maintains bridge help articles covering usage, fees, security, USDC behavior, and troubleshooting in its <a href=\"https://support.avax.network/en/collections/3073022-avalanche-bridge\">support center</a>."
+  }
+ ],
+ "eeat": [
+  {
+   "text": "Core bridge app",
+   "url": "https://core.app/bridge/"
+  },
+  {
+   "text": "Avalanche Bridge support",
+   "url": "https://support.avax.network/en/collections/3073022-avalanche-bridge"
+  },
+  {
+   "text": "Avalanche official site",
+   "url": "https://www.avax.network/"
+  }
+ ],
+ "faq": [
+  {
+   "q": "What is avalanche bridge used for?",
+   "a": "It is used to move supported assets between Ethereum and Avalanche, with the current app flow handled through Core.",
+   "open": true
+  },
+  {
+   "q": "Is avalanche bridge the same as Core?",
+   "a": "Avalanche Bridge is the bridge product; Core is the official app interface where users access the bridge flow.",
+   "open": false
+  },
+  {
+   "q": "What fees apply to avalanche bridge?",
+   "a": "Fees vary by direction, asset, and network conditions; review the live quote in Core and the <a href=\"https://support.avax.network/en/articles/5462236-how-do-fees-work-on-the-avalanche-bridge\">official fee article</a> before confirming.",
+   "open": false
+  },
+  {
+   "q": "Can avalanche bridge send to a different wallet address?",
+   "a": "For Ethereum-Avalanche bridge transfers, official support notes that transfers are to the same address on the other network; send onward after the bridge completes if needed.",
+   "open": false
+  },
+  {
+   "q": "Where is the official avalanche bridge app?",
+   "a": "The official bridge app route is <a href=\"https://core.app/bridge/\">core.app/bridge</a>. Always verify the domain before connecting a wallet.",
+   "open": false
+  }
+ ],
+ "official_url": "https://core.app/bridge/",
+ "official_domain": "core.app",
+ "footer_note": "Not the official app; verify the core.app domain before connecting. Educational content only, not financial advice."
+}

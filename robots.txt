@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avalanche-bridge.github.io/sitemap.xml
