@@ -1,22 +1,12 @@
 {
- "name": "Avalanche Bridge",
- "short_name": "Avalanche Brid",
- "start_url": "/",
- "display": "standalone",
- "background_color": "#FFFFFF",
- "theme_color": "#FFFFFF",
- "icons": [
-  {
-   "src": "static/icon-192.png",
-   "sizes": "192x192",
-   "type": "image/png",
-   "purpose": "any maskable"
-  },
-  {
-   "src": "static/icon-512.png",
-   "sizes": "512x512",
-   "type": "image/png",
-   "purpose": "any maskable"
-  }
- ]
+  "name": "Avalanche Bridge",
+  "short_name": "Avalanche Bridge",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F6F8",
+  "theme_color": "#F5F6F8",
+  "icons": [
+    { "src": "favicon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
 }
