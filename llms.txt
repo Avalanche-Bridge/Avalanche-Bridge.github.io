@@ -1,60 +1,31 @@
 # Avalanche Bridge
-> Avalanche Bridge is Ava Labs’ cross-chain protocol for moving supported Ethereum assets between Ethereum and Avalanche C-Chain.
 
-## What is Avalanche Bridge
-Avalanche Bridge transfers ETH and supported Ethereum-origin ERC-20 tokens to Avalanche C-Chain and back. It solves the problem that assets and transaction histories are native to one blockchain and cannot simply be sent to another. Unlike a DEX or liquidity-routing aggregator, it uses locked collateral and corresponding bridged tokens; native USDC is handled through Circle CCTP. It is separate from Avalanche’s internal X/P/C-Chain transfers and Avalanche Interchain Messaging between Avalanche L1s.
-
-## How it works
-1. The user opens the bridge in Core, connects a compatible externally owned wallet, selects Ethereum or Avalanche C-Chain, chooses a supported asset, and reviews the quoted fees.
-2. The user signs any required token approval and transfer; the interface never receives the wallet’s private keys.
-3. Bridge Nodes independently index the source chain, and six of eight must agree before the Intel SGX enclave signs the destination transaction.
-4. Ethereum-origin collateral is locked and a corresponding token is minted on Avalanche; returning it invokes the unwrap process and releases the Ethereum asset. Transfers use the same EVM address on both chains.
+> Avalanche Bridge moves supported Ethereum assets to Avalanche C-Chain and back, using locked collateral, minted representations, and your own wallet signatures.
 
 ## Key facts
-- Ethereum mainnet uses chain ID 1; Avalanche C-Chain uses chain ID 43114.
-- Supported assets are ETH and specifically listed Ethereum-origin ERC-20 tokens.
-- Most bridged Ethereum assets use the `.e` suffix on Avalanche.
-- Native USDC transfers use Circle CCTP rather than USDC.e wrapping.
-- The trust model combines an Intel SGX enclave with a six-of-eight Bridge Node threshold.
-- Users retain their wallet keys, but locked collateral is controlled by the bridge architecture.
-- Smart-contract wallets and direct transfers to bridge contracts or wallets are unsupported.
-- Ethereum processing typically waits for 96 confirmations; the Avalanche leg usually completes within seconds.
-- Fees are paid from the transferred asset; source-chain gas is paid in ETH or AVAX.
-- Avalanche-native tokens cannot be exported through this bridge; Bitcoin bridging now uses separate Lombard infrastructure.
+- Route: Ethereum mainnet  Avalanche C-Chain
+- Deposit: Ethereum leg typically waits for 96 confirmations
+- Withdraw: Return unwraps and releases the Ethereum asset; do not resubmit
+- Gas: ETH on Ethereum, AVAX on C-Chain
+- Custody: Your wallet signs; collateral sits under bridge architecture
+- Verify: Use the official interface; beware fake bridge sites
 
-## Common questions
-**Is Avalanche Bridge safe?** Its code has a published Halborn audit, and SGX limits access to signing keys. Audit coverage does not remove smart-contract, enclave, node, operational, or blockchain risk.
-
-**Is it custodial?** Users keep their private keys, but Ethereum collateral is held at bridge-controlled addresses while representations circulate on Avalanche.
-
-**What fees apply?** The bridge charges an asset-denominated transfer fee plus applicable network gas. Review the live quote because Ethereum gas and offboarding costs vary.
-
-**How long does bridging take?** Ethereum-origin transfers typically require about 20 minutes for confirmations; Avalanche-side processing is normally much faster.
-
-**Which chains and assets are supported?** The EVM bridge connects Ethereum and Avalanche C-Chain for ETH and listed Ethereum-origin ERC-20 assets. Bitcoin uses a separate Lombard-powered route.
-
-**How do I start?** Use the official Core bridge interface, connect a supported wallet, choose the route and asset, review every detail, then approve and sign.
-
-**What are the main risks?** Phishing, unsupported tokens or wallets, wrong-network actions, direct deposits to bridge addresses, gas spikes, delayed confirmations, and failure of bridge security dependencies can cause delay or permanent loss.
+## On this page
+- [What is Avalanche Bridge?](https://avalanche-bridge.github.io/#what)
+- [How bridging works](https://avalanche-bridge.github.io/#how)
+- [Depositing to the destination](https://avalanche-bridge.github.io/#deposit)
+- [Withdrawing back](https://avalanche-bridge.github.io/#withdraw)
+- [Time and fees](https://avalanche-bridge.github.io/#fees)
+- [Is Avalanche Bridge safe?](https://avalanche-bridge.github.io/#safety)
+- [Problems and fixes](https://avalanche-bridge.github.io/#troubleshoot)
+- [FAQ](https://avalanche-bridge.github.io/#faq)
 
 ## App
-- Dashboard: https://avalanche-bridge.github.io/
-- App: https://avalanche-bridge.github.io/dashboard/
+- [Avalanche Bridge dashboard](https://avalanche-bridge.github.io/)
+- [Open the app](https://avalanche-bridge.github.io/dashboard/)
 
-## Official resources
-Avalanche Bridge App: https://core.app/bridge
-Avalanche Bridge Support: https://support.avax.network/en/collections/3073022-avalanche-bridge
-Avalanche Bridge FAQ: https://support.avax.network/en/articles/6092559-avalanche-bridge-faq
-Security Architecture: https://support.avax.network/en/articles/6449794-how-is-the-avalanche-bridge-secured
-Bridge Node Architecture: https://support.avax.network/en/articles/5462271-what-is-the-role-of-the-avalanche-bridge-nodes
-Fees Documentation: https://support.avax.network/en/articles/5462236-how-do-fees-work-on-the-avalanche-bridge
-Halborn Audit: https://github.com/ava-labs/audits/blob/main/bridge/Avalanche_Bridge_Security_Audit_Report_Halborn_v1_1.pdf
-Core Extension Source: https://github.com/ava-labs/core-extension
-Official Avalanche X: https://x.com/avax
-
-## Data & references
-Ethereum Bridge Address on Etherscan: https://etherscan.io/address/0x8eb8a3b98659cce290402893d0123abb75e3ab28
-Avalanche Bridges on DeFiLlama: https://defillama.com/bridges/avalanche
-Avalanche on CoinGecko: https://www.coingecko.com/en/coins/avalanche
-ERC-20 Standard: https://eips.ethereum.org/EIPS/eip-20
-Avalanche on Wikipedia: https://en.wikipedia.org/wiki/Avalanche_(blockchain_platform)
+## Sources
+- [support.avax.network](https://support.avax.network/en/collections/3073022-avalanche-bridge)
+- [ethereum.org](https://ethereum.org/bridges)
+- [coingecko.com](https://www.coingecko.com/learn/bridge-to-avalanche-avax)
+- [build.avax.network](https://build.avax.network/academy/avalanche-l1/erc20-bridge/01-token-bridging/02-bridge-architecture)

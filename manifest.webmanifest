@@ -1,0 +1,19 @@
+{
+  "name": "Avalanche Bridge",
+  "short_name": "Avalanche Bridge",
+  "description": "Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "en",
+  "background_color": "#f5f6f8",
+  "theme_color": "#f5f6f8",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
