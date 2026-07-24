@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Avalanche Bridge — Dashboard</title>
-  <meta name="description" content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#f5f6f8">
-  <link rel="canonical" href="https://avalanche-bridge.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="image_src" href="og-cover.png">
-  <link rel="preconnect" href="https://api.coingecko.com" crossorigin>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Avalanche Bridge — Dashboard</title>
+<meta content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems." name="description"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
+<meta content="#f5f6f8" name="theme-color"/>
+<link href="https://avalanche-bridge.github.io/" rel="canonical"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="og-cover.png" rel="image_src"/>
+<link crossorigin="" href="https://api.coingecko.com" rel="preconnect"/>
+<style>
 /* Avalanche Bridge — independent single-page hub. */
 :root {
   color-scheme: light;
@@ -112,7 +113,7 @@ html:not(.js) .menu-btn { display: none; }
 
 /* ───────── main / topbar ───────── */
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.topbar { position: sticky; top: 0; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 11px 26px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); }
+.topbar { position: relative; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 21px 26px; border-bottom: 0; background: transparent; }
 .topbar-right { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
 .mode-switch { display: inline-flex; align-items: center; gap: 10px; }
 .ms-label { font-size: 13.5px; font-weight: 700; color: var(--muted); transition: color 150ms var(--ease); }
@@ -176,6 +177,44 @@ html:not(.js) .menu-btn { display: none; }
 .content .lead-in { padding: clamp(4px, 1vh, 12px) 0 clamp(10px, 2.5vh, 22px); }
 .content .lead-in > p { margin: 0 0 16px; font-size: 15px; line-height: 1.66; color: var(--text); }
 .content .lead-in > p strong { color: var(--ink); font-weight: 700; }
+/* premium feature card (modern-site feel) */
+.content .lead-in .feat{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;background:linear-gradient(165deg,#141824,#0b0e15);border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;box-shadow:0 52px 120px -55px rgba(0,0,0,.82)}
+.feat-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.feat-l h2{margin:0;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
+.feat-lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);max-width:48ch}
+.content .lead-in .feat-lead a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.content .lead-in .feat-lead a:hover{text-decoration-color:#fff}
+.feat-cta{margin:32px 0 0}
+.content .lead-in .feat-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 38px;border-radius:999px;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 50%,#7c4dff));color:#fff;font-weight:750;font-size:16.5px;text-decoration:none;box-shadow:0 20px 44px -12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.content .lead-in .feat-btn:hover{transform:translateY(-2px);box-shadow:0 26px 56px -14px var(--accent-glow)}
+.feat-btn .arr{transition:transform .18s var(--ease)}
+.content .lead-in .feat-btn:hover .arr{transform:translateX(3px)}
+.feat-more{margin:18px 0 0}
+.feat-readmore{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.7);transition:color .15s var(--ease)}
+.feat-readmore::-webkit-details-marker{display:none}
+.feat-readmore:hover{color:#fff}
+.feat-readmore .chev{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feat-more[open] .feat-readmore .chev{transform:rotate(180deg)}
+.feat-detail{margin:20px 0 0;font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.82)}
+.content .lead-in .feat-detail a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.feat-more:not([open]) .feat-detail{display:none}
+.content .lead-in .feat-lead{color:rgba(255,255,255,.9)}
+.content .lead-in .feat-detail,.content .lead-in .feat-detail p{color:rgba(255,255,255,.82)}
+.feat-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:18px 0 2px}
+.feat-fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+.feat-fact .fl{display:block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 3px}
+.feat-fact .fv{display:block;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.feat-r{position:relative;overflow:hidden;min-height:clamp(300px,32vw,440px);background:radial-gradient(120% 105% at 70% 22%,color-mix(in srgb,var(--accent) 52%,#1a1030),#0a0d14 70%)}
+.feat-r::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%);mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%)}
+.feat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(122px,16vw,166px);height:clamp(122px,16vw,166px);border-radius:34px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.02));box-shadow:0 38px 84px -22px var(--accent-glow),inset 0 0 0 1px rgba(255,255,255,.18)}
+.feat-badge img{width:52%;height:52%;object-fit:contain}
+@media (max-width:860px){
+  .content .lead-in .feat{width:calc(100vw - 28px);grid-template-columns:1fr}
+  .feat-l{padding:30px 22px 32px}
+  .feat-r{min-height:200px}
+  .feat-facts{grid-template-columns:1fr}
+}
+
 .tbl.spec table { min-width: 0; }
 .tbl.spec td:first-child { color: var(--muted); font-weight: 600; white-space: nowrap; width: 1%; }
 .content .sec { border-top: 1px solid var(--line); scroll-margin-top: 66px; }
@@ -323,167 +362,189 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .mnote { text-align: center; font-size: 11px; color: var(--muted); margin: 12px 2px 0; line-height: 1.5; }
 .mnote a { color: var(--accent-2); font-weight: 600; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .scrollcue2 svg, .mspin { animation: none; } .mbar i { transition: none; } }
+/* docs layout (sticky TOC + open sections) */
+.docs{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,60px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.toc{position:sticky;top:74px;align-self:start;max-height:calc(100dvh - 96px);overflow:auto}
+.toc-h{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-left:13px}
+.toc a{display:block;padding:7px 13px;border-left:2px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;text-decoration:none;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--accent-2);border-left-color:var(--accent);font-weight:750}
+.doc-main{min-width:0}
+.content .doc-sec{border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:0;scroll-margin-top:82px;transition:box-shadow .26s var(--ease),border-color .26s var(--ease)}
+.content .doc-sec:first-child{border-top:1px solid var(--line)}
+.content .doc-sec:hover{border-color:var(--line-2);box-shadow:0 16px 40px -22px rgba(17,24,39,.18)}
+.content .doc-sec[open]{border-color:var(--line)}
+.content .doc-sec>summary{cursor:default;pointer-events:none;padding:clamp(20px,3vh,28px) clamp(22px,3.2vw,32px) 8px;list-style:none}
+.content .doc-sec>summary::-webkit-details-marker{display:none}
+.content .doc-sec>summary::after{display:none}
+.content .doc-sec>summary h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec .sec-body{padding:0 clamp(22px,3.2vw,32px) clamp(22px,3.4vh,30px);max-width:74ch}
+.content .doc-sec.field-notes{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:clamp(22px,3vh,28px) clamp(22px,3.2vw,32px)}
+.content .doc-sec.field-notes h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec.field-notes .fn-body{max-width:74ch}
+@media (max-width:900px){
+  .docs{grid-template-columns:1fr;width:calc(100vw - 28px);gap:0}
+  .toc{position:sticky;top:56px;z-index:20;display:flex;gap:8px;overflow-x:auto;max-height:none;background:var(--bg);padding:11px 2px;margin:0 0 6px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .toc-h{display:none}
+  .toc a{flex:0 0 auto;white-space:nowrap;border-left:0;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px}
+  .toc a.active{color:var(--accent-2);border-color:var(--accent);background:var(--accent-soft)}
+}
+.site-foot{width:min(1120px,calc(100vw - 44px));margin:clamp(34px,5vh,60px) auto 0;padding:22px 2px clamp(30px,4vh,48px);color:var(--faint);font-size:12.5px;line-height:1.6}
+.site-foot p{margin:0 0 6px;max-width:82ch}
+.site-foot strong{color:var(--muted);font-weight:700}
+.site-foot .foot-fine{font-size:11.5px}
   </style>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://avalanche-bridge.github.io/">
-  <meta property="og:title" content="Avalanche Bridge — Dashboard">
-  <meta property="og:description" content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems.">
-  <meta property="og:site_name" content="Avalanche Bridge"><meta property="og:image" content="https://avalanche-bridge.github.io/og-cover.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Avalanche Bridge — independent dashboard">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Avalanche Bridge — Dashboard">
-  <meta name="twitter:description" content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems."><meta name="twitter:image" content="https://avalanche-bridge.github.io/og-cover.png">
-  <script type="application/ld+json">
+<meta content="website" property="og:type"/><meta content="https://avalanche-bridge.github.io/" property="og:url"/>
+<meta content="Avalanche Bridge — Dashboard" property="og:title"/>
+<meta content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems." property="og:description"/>
+<meta content="Avalanche Bridge" property="og:site_name"/><meta content="https://avalanche-bridge.github.io/og-cover.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Avalanche Bridge — independent dashboard" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="Avalanche Bridge — Dashboard" name="twitter:title"/>
+<meta content="Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems." name="twitter:description"/><meta content="https://avalanche-bridge.github.io/og-cover.png" name="twitter:image"/>
+<script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://avalanche-bridge.github.io/#website", "url": "https://avalanche-bridge.github.io/", "name": "Avalanche Bridge", "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://avalanche-bridge.github.io/#brand", "name": "Avalanche bridge", "alternateName": ["Avalanche Bridge", "Avalanche"], "description": "Cross-chain bridge routes for moving assets to and from Avalanche, via native or third-party bridges.", "sameAs": ["https://ethereum.org/bridges", "https://www.coingecko.com/learn/bridge-to-avalanche-avax", "https://www.coingecko.com/en/coins/avalanche-bridged-weth-avalanche"], "applicationCategory": "FinanceApplication", "operatingSystem": "Web"}, {"@type": "WebPage", "@id": "https://avalanche-bridge.github.io/#webpage", "url": "https://avalanche-bridge.github.io/", "name": "Avalanche Bridge — Dashboard", "description": "Avalanche Bridge guide: Ethereum to Avalanche C-Chain routes, lock-and-mint mechanics, deposits and withdrawals, fees and gas, safety checks, and fixes for common transfer problems.", "isPartOf": {"@id": "https://avalanche-bridge.github.io/#website"}, "about": {"@id": "https://avalanche-bridge.github.io/#brand"}, "mainEntity": {"@id": "https://avalanche-bridge.github.io/#brand"}, "inLanguage": "en", "dateModified": "2026-07-21"}, {"@type": "FAQPage", "@id": "https://avalanche-bridge.github.io/#faq", "mainEntity": [{"@type": "Question", "name": "Is this the official Avalanche Bridge site?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an independent reference page, so confirm the live route, supported assets, and transaction details in the official interface before you sign."}}, {"@type": "Question", "name": "How long does bridging take?", "acceptedAnswer": {"@type": "Answer", "text": "The Ethereum leg typically waits for 96 confirmations, while the Avalanche C-Chain leg usually completes within seconds. Delays usually come from source-chain congestion, a wallet on the wrong network, or a status page being misread."}}, {"@type": "Question", "name": "How do I bridge to Avalanche C-Chain?", "acceptedAnswer": {"@type": "Answer", "text": "Open the bridge in Core, connect a compatible externally owned wallet, select Ethereum to Avalanche C-Chain, choose a supported ETH or listed ERC-20 asset, review fees, approve if required, and sign the transfer. Keep ETH for source gas and AVAX for what you do after arrival."}}, {"@type": "Question", "name": "Do I need AVAX before the bridged tokens arrive?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for using C-Chain after arrival, because C-Chain gas is paid in AVAX. The bridge transfer itself is signed from the source side, but landing without AVAX can leave you unable to swap, send, or withdraw further."}}, {"@type": "Question", "name": "Is Avalanche Bridge safe?", "acceptedAnswer": {"@type": "Answer", "text": "It has meaningful controls: wallet keys stay with the user, SGX protects signing access, and six-of-eight Bridge Nodes must agree, with a published Halborn audit. That still leaves smart-contract, enclave, node, operational, approval, cross-chain, and phishing risk, so no bridge should be treated as risk-free."}}, {"@type": "Question", "name": "Is this a native route or a third-party swap route?", "acceptedAnswer": {"@type": "Answer", "text": "This bridge uses locked collateral and corresponding bridged tokens rather than DEX liquidity routing, with native USDC handled through Circle CCTP. It is distinct from Avalanche X/P/C-Chain transfers and from Avalanche Interchain Messaging between Avalanche L1s."}}]}]}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
-    <main class="main" id="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-          <a class="topbar-logo" href="./" aria-label="Avalanche Bridge home"><img src="favicon.png" width="20" height="20" alt="Avalanche Bridge logo"></a>
-          <h1 class="wordmark">Avalanche Bridge</h1>
-        </div>
-        <div class="topbar-right">
-          <div class="ticker" aria-label="Live metrics">
-            <a class="tick" href="https://www.coingecko.com/en/coins/avalanche-2" target="_blank" rel="noopener noreferrer" aria-label="Avalanche"><span>Avalanche</span> <b id="sig-avalanche-2">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noopener noreferrer" aria-label="ETH"><span>ETH</span> <b id="sig-ethereum">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-      </header>
-
-      <section class="hero2">
-        <div class="hero2-l">
-          <h2 class="hero2-h">Ethereum to C-Chain, done carefully</h2>
-          <p class="hero2-lead"><strong>Avalanche Bridge</strong> moves supported Ethereum assets to Avalanche C-Chain and back, using locked collateral, minted representations, and your own wallet signatures.</p>
-          <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the Avalanche bridge <span class="go" aria-hidden="true">↗</span></a>
-            <a class="btn2 btn2-ghost" href="#what">How it works</a>
-          </div>
-        </div>
-        <div class="hero2-r">
-        <section class="swap-card" id="swap-preview" aria-labelledby="preview-title">
-          <div class="card-head">
-            <p class="card-title" id="preview-title">Preview</p>
-            <span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
-          </div>
-          <div class="leg">
-            <span class="asset" id="asset-from"><span class="tok"><img src="eth.png" alt="Ethereum token" width="24" height="24" loading="lazy" decoding="async"></span><b>Ethereum</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <button class="swap-arrow" id="route-swap" type="button" aria-label="Swap preview direction" title="Swap preview direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"/></svg>
-          </button>
-          <div class="leg">
-            <span class="asset" id="asset-to"><span class="tok"><img src="avax.png" alt="AVAX token" width="24" height="24" loading="lazy" decoding="async"></span><b>AVAX</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <div class="route-panel">
-            <div class="route-info"><b id="route-name">Deposit · Ethereum → Avalanche</b><span>Non-custodial bridge route</span></div>
-            <div class="route-tok"><span class="tok sm"><img src="avax.png" alt="AVAX token" width="18" height="18" loading="lazy" decoding="async"></span> AVAX</div>
-          </div>
-          <div class="route-row"><span>Type</span><b>Bridge route</b></div>
-          <div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
-          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
-        </section>
-        </div>
-        <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
-      </section>
-
-            <div class="content">
-        <div class="lead-in reveal">
-          <p>Avalanche Bridge is Ava Labs' route for moving ETH and specifically listed Ethereum-origin ERC-20 tokens between Ethereum mainnet and Avalanche C-Chain. In practice you open the bridge in Core, connect an externally owned wallet, pick Ethereum or C-Chain, review the quote, approve if needed, and sign; the flow and supported assets are described in the <a href='https://support.avax.network/en/collections/3073022-avalanche-bridge'>Avalanche Bridge support collection</a>. Treat third-party dashboards such as <a href='https://defillama.com/bridge/avalanche-bridge'>DefiLlama's bridge view</a> as independent context, not as a substitute for checking the live interface.</p>
-          <div class="tbl spec"><table><tbody><tr><td>Route</td><td>Ethereum mainnet <-> Avalanche C-Chain</td></tr><tr><td>Deposit</td><td>Ethereum leg typically waits for 96 confirmations</td></tr><tr><td>Withdraw</td><td>Return unwraps and releases the Ethereum asset; do not resubmit</td></tr><tr><td>Gas</td><td>ETH on Ethereum, AVAX on C-Chain</td></tr><tr><td>Custody</td><td>Your wallet signs; collateral sits under bridge architecture</td></tr><tr><td>Verify</td><td>Use the official interface; beware fake bridge sites</td></tr></tbody></table></div>
-        </div>
-
-        <details id="what" class="sec reveal">
-          <summary><h2>What is Avalanche Bridge?</h2></summary>
-          <div class="sec-body"><p>It is a cross-chain transfer system for a defined set of Ethereum-origin assets, not a DEX and not a liquidity-routing aggregator. Ethereum collateral is locked or otherwise held under the bridge design, and a corresponding representation appears on Avalanche, usually with the .e suffix; native USDC is the notable exception because it is handled through Circle CCTP rather than USDC.e wrapping.</p><p>The mental model is the standard one described for <a href='https://ethereum.org/bridges'>blockchain bridges</a>: assets and histories are native to one chain, so the bridge creates a claim on the other side instead of literally teleporting the token. It is also separate from Avalanche's internal X/P/C-Chain transfers and from Avalanche Interchain Messaging between Avalanche L1s.</p></div>
-        </details>
-
-        <details id="how" class="sec reveal">
-          <summary><h2>How bridging works</h2></summary>
-          <div class="sec-body"><p>The sequence is approval if the token requires one, then the transfer transaction; the interface never receives your private keys. Bridge Nodes independently index the source chain, six of eight must agree, and the Intel SGX enclave signs the destination transaction, a design outlined in Ava Labs' <a href='https://build.avax.network/academy/avalanche-l1/erc20-bridge/01-token-bridging/02-bridge-architecture'>bridge architecture notes</a>.</p><p>Because the same EVM address is used on both chains, most users do not need a new address, but they do need the right network selected and enough native gas on the side they are transacting from. Smart-contract wallets and direct sends to bridge contracts or wallets are unsupported, which is where avoidable losses happen.</p></div>
-        </details>
-
-        <details id="deposit" class="sec reveal">
-          <summary><h2>Depositing to the destination</h2></summary>
-          <div class="sec-body"><p>For Ethereum to C-Chain, connect the wallet, choose Ethereum as source and Avalanche C-Chain as destination, select a supported asset, and read the quoted fees before signing anything. The slow part is usually Ethereum finality: processing typically waits for 96 confirmations, while the Avalanche leg usually completes within seconds.</p><p>Keep ETH for the source transaction and AVAX ready on C-Chain for whatever you plan to do next; arriving with a bridged token and zero AVAX leaves you stuck until you fund gas. A plain overview of the user journey is also covered by CoinGecko's <a href='https://www.coingecko.com/learn/bridge-to-avalanche-avax'>bridge-to-Avalanche walkthrough</a>.</p></div>
-        </details>
-
-        <details id="withdraw" class="sec reveal">
-          <summary><h2>Withdrawing back</h2></summary>
-          <div class="sec-body"><p>Going back to Ethereum is the unwrap path: the Avalanche representation is returned through the bridge process and the Ethereum-origin asset is released to the same EVM address on mainnet. Do not fire repeated transactions because the first one looks slow; check status first, then act.</p><p>The practical risk is impatience plus network confusion. Confirm whether you are waiting on the Avalanche leg, the Ethereum leg, or a wallet that is simply on the wrong chain before concluding funds are missing.</p></div>
-        </details>
-
-        <details id="fees" class="sec reveal">
-          <summary><h2>Time and fees</h2></summary>
-          <div class="sec-body"><p>Costs come from the mechanism, not a single universal number: bridge fees are taken from the transferred asset, while source-chain gas is paid in ETH on Ethereum or AVAX on C-Chain. Your all-in cost therefore depends on current network conditions and the asset you move, not on a fixed figure copied from an old screenshot.</p><p>Time has the same split personality. Ethereum confirmation waiting dominates the deposit side, the C-Chain leg is usually quick, and any return transfer should be judged by which chain is finalizing at that moment rather than by a generic stopwatch claim.</p></div>
-        </details>
-
-        <details id="safety" class="sec reveal">
-          <summary><h2>Is Avalanche Bridge safe?</h2></summary>
-          <div class="sec-body"><p>The design has real mitigations: users keep their wallet keys, signing is gated by an SGX enclave, and six-of-eight Bridge Node agreement is required before the destination transaction is signed. There is also a published Halborn audit, but audit coverage does not remove smart-contract, enclave, node, operational, approval, routing, or blockchain risk.</p><p>Cross-chain systems concentrate risk even when the UI feels simple, so verify the site, the networks, the token, the approval scope, and the destination address every time. Independent risk context such as <a href='https://l2beat.com/interop/summary'>L2Beat's interoperability summary</a> is useful, but your final check is the transaction in your own wallet.</p></div>
-        </details>
-
-        <details id="troubleshoot" class="sec reveal">
-          <summary><h2>Problems and fixes</h2></summary>
-          <div class="sec-body"><p>Most issues are boring: wrong network selected, no AVAX on arrival, an unsupported smart-contract wallet, a direct transfer to a bridge address, or a duplicate submission made out of impatience. Fix the network first, fund gas second, and only then investigate the transfer status.</p><p>If a site asked for your seed phrase, pushed an unlimited approval before showing the route, or arrived via an ad or DM, treat it as phishing until proven otherwise. Use known support entry points, compare against independent dashboards, and remember that Avalanche-native tokens cannot be exported through this bridge while Bitcoin bridging now uses separate Lombard infrastructure.</p></div>
-        </details>
-
-        <details id="faq" class="sec reveal">
-          <summary><h2>Avalanche FAQ</h2></summary>
-          <div class="sec-body">
-          <details class="qa"><summary>Is this the official Avalanche Bridge site?</summary><div class="a"><p>No. This is an independent reference page, so confirm the live route, supported assets, and transaction details in the official interface before you sign.</p></div></details>
-          <details class="qa"><summary>How long does bridging take?</summary><div class="a"><p>The Ethereum leg typically waits for 96 confirmations, while the Avalanche C-Chain leg usually completes within seconds. Delays usually come from source-chain congestion, a wallet on the wrong network, or a status page being misread.</p></div></details>
-          <details class="qa"><summary>How do I bridge to Avalanche C-Chain?</summary><div class="a"><p>Open the bridge in Core, connect a compatible externally owned wallet, select Ethereum to Avalanche C-Chain, choose a supported ETH or listed ERC-20 asset, review fees, approve if required, and sign the transfer. Keep ETH for source gas and AVAX for what you do after arrival.</p></div></details>
-          <details class="qa"><summary>Do I need AVAX before the bridged tokens arrive?</summary><div class="a"><p>Yes for using C-Chain after arrival, because C-Chain gas is paid in AVAX. The bridge transfer itself is signed from the source side, but landing without AVAX can leave you unable to swap, send, or withdraw further.</p></div></details>
-          <details class="qa"><summary>Is Avalanche Bridge safe?</summary><div class="a"><p>It has meaningful controls: wallet keys stay with the user, SGX protects signing access, and six-of-eight Bridge Nodes must agree, with a published Halborn audit. That still leaves smart-contract, enclave, node, operational, approval, cross-chain, and phishing risk, so no bridge should be treated as risk-free.</p></div></details>
-          <details class="qa"><summary>Is this a native route or a third-party swap route?</summary><div class="a"><p>This bridge uses locked collateral and corresponding bridged tokens rather than DEX liquidity routing, with native USDC handled through Circle CCTP. It is distinct from Avalanche X/P/C-Chain transfers and from Avalanche Interchain Messaging between Avalanche L1s.</p></div></details>
-          </div>
-        </details>
-
-        <section class="field-notes reveal" id="notes">
-          <h2>Notes before you use Avalanche Bridge</h2>
-          <div class="fn-body"><strong>Practitioner note:</strong> the transfer is usually easy; the judgment is in route selection, approvals, and patience while finality does its job. <strong>The common mistake is</strong> sending tokens directly to a bridge contract or wallet instead of using the interface flow. <strong>Before you sign</strong><ul><li>Confirm the bridge site, the exact token, and that Ethereum mainnet is chain ID 1 while Avalanche C-Chain is chain ID 43114.</li><li>Check source and destination networks, approval scope, and keep ETH plus AVAX available for gas on both sides.</li><li>Know the wait profile: Ethereum confirmations can dominate, and a pending status is not a reason to duplicate the transaction.</li></ul><strong>Verification:</strong> this page reflects public documentation and mechanism-level reasoning, not a live benchmark, last reviewed 21 July 2026. <strong>Independent reference — confirm the route in your own wallet.</strong></div>
-        </section>
-      </div>
-    </main>
-    <aside class="sidebar">
-      <div class="side-top">
-        <div class="brand">
-          <a class="brand-logo" href="./" aria-label="Avalanche Bridge home"><img src="favicon.png" width="30" height="30" alt="Avalanche Bridge logo"></a>
-          <p class="brand-name">Avalanche</p>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="Close navigation menu" aria-controls="sideNav" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      </div>
-
-      <nav class="side-nav" id="sideNav" aria-label="Primary">
-        <p class="nav-label">Bridge</p>
-        <a class="nav-item is-active" href="#swap-preview" aria-current="true">
-          <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>
-          Bridge preview
-        </a>
-        <p class="nav-label">On this page</p>
-        <details class="nav-group">
-          <summary>
-            <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>
-            Guide sections
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="nav-sub"><a href="#what">What is Avalanche Bridge?</a><a href="#how">How bridging works</a><a href="#deposit">Depositing to the destination</a><a href="#withdraw">Withdrawing back</a><a href="#fees">Time and fees</a><a href="#safety">Is Avalanche Bridge safe?</a><a href="#troubleshoot">Problems and fixes</a><a href="#faq">FAQ</a></div>
-        </details>
-      </nav>
-
-      <div class="sidebar-foot">
-        <p class="disclose"><strong>Independent</strong> Avalanche Bridge information dashboard. Not affiliated with any official product.</p>
-        <p class="fine">Live metrics are compiled from public APIs. Review your route in the official app before signing.</p>
-        <p class="fine">© 2026 Avalanche Bridge dashboard.</p>
-      </div>
-    </aside>
-    <div class="scrim" data-scrim></div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar-left">
+<h1 class="wordmark">Avalanche Bridge</h1>
+</div>
+<div class="topbar-right">
+<div aria-label="Live metrics" class="ticker">
+<a aria-label="Avalanche" class="tick" href="https://www.coingecko.com/en/coins/avalanche-2" rel="noopener noreferrer" target="_blank"><span>Avalanche</span> <b id="sig-avalanche-2">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="ETH" class="tick" href="https://coinmarketcap.com/currencies/ethereum/" rel="noopener noreferrer" target="_blank"><span>ETH</span> <b id="sig-ethereum">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+</div>
+</div>
+</header>
+<section class="hero2">
+<div class="hero2-l">
+<h2 class="hero2-h">Ethereum to C-Chain, done carefully</h2>
+<p class="hero2-lead"><strong>Avalanche Bridge</strong> moves supported Ethereum assets to Avalanche C-Chain and back, using locked collateral, minted representations, and your own wallet signatures.</p>
+<div class="hero2-cta">
+<a class="btn2 btn2-primary" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the Avalanche bridge <span aria-hidden="true" class="go">↗</span></a>
+<a class="btn2 btn2-ghost" href="#what">How it works</a>
+</div>
+</div>
+<div class="hero2-r">
+<section aria-labelledby="preview-title" class="swap-card" id="swap-preview">
+<div class="card-head">
+<p class="card-title" id="preview-title">Preview</p>
+<span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
+</div>
+<div class="leg">
+<span class="asset" id="asset-from"><span class="tok"><img alt="Ethereum token" decoding="async" height="24" loading="lazy" src="eth.png" width="24"/></span><b>Ethereum</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<button aria-label="Swap preview direction" class="swap-arrow" id="route-swap" title="Swap preview direction" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"></path></svg>
+</button>
+<div class="leg">
+<span class="asset" id="asset-to"><span class="tok"><img alt="AVAX token" decoding="async" height="24" loading="lazy" src="avax.png" width="24"/></span><b>AVAX</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<div class="route-panel">
+<div class="route-info"><b id="route-name">Deposit · Ethereum → Avalanche</b><span>Non-custodial bridge route</span></div>
+<div class="route-tok"><span class="tok sm"><img alt="AVAX token" decoding="async" height="18" loading="lazy" src="avax.png" width="18"/></span> AVAX</div>
+</div>
+<div class="route-row"><span>Type</span><b>Bridge route</b></div>
+<div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
+<a class="swap-cta" href="dashboard/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="cta-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>Go to Swap<span aria-hidden="true" class="cta-go">→</span></a>
+</section>
+</div>
+<a aria-label="Scroll to learn more" class="scrollcue2" href="#what"><span>Scroll</span><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 5v14M12 19l-6-6M12 19l6-6"></path></svg></a>
+</section>
+<div class="content">
+<div class="lead-in reveal">
+<div class="feat">
+<div class="feat-l">
+<h2>Avalanche Bridge Protocol Architecture &amp; Route Overview</h2>
+<p class="feat-lead">Avalanche Bridge is Ava Labs' route for moving ETH and specifically listed Ethereum-origin ERC-20 tokens between Ethereum mainnet and Avalanche C-Chain.</p>
+<div class="feat-cta"><a class="feat-btn" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the App <span aria-hidden="true" class="arr">→</span></a></div>
+<details class="feat-more">
+<summary class="feat-readmore">Read more <svg aria-hidden="true" class="chev" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div class="feat-detail">
+<p>In practice you open the bridge in Core, connect an externally owned wallet, pick Ethereum or C-Chain, review the quote, approve if needed, and sign; the flow and supported assets are described in the <a href="https://support.avax.network/en/collections/3073022-avalanche-bridge">Avalanche Bridge support collection</a>. Treat third-party dashboards such as <a href="https://defillama.com/bridge/avalanche-bridge">DefiLlama's bridge view</a> as independent context, not as a substitute for checking the live interface.</p>
+<div class="feat-facts">
+<div class="feat-fact"><span class="fl">Route</span><span class="fv">Ethereum mainnet &lt;-&gt; Avalanche C-Chain</span></div>
+<div class="feat-fact"><span class="fl">Deposit</span><span class="fv">Ethereum leg typically waits for 96 confirmations</span></div>
+<div class="feat-fact"><span class="fl">Withdraw</span><span class="fv">Return unwraps and releases the Ethereum asset; do not resubmit</span></div>
+<div class="feat-fact"><span class="fl">Gas</span><span class="fv">ETH on Ethereum, AVAX on C-Chain</span></div>
+<div class="feat-fact"><span class="fl">Custody</span><span class="fv">Your wallet signs; collateral sits under bridge architecture</span></div>
+<div class="feat-fact"><span class="fl">Verify</span><span class="fv">Use the official interface; beware fake bridge sites</span></div>
+</div>
+</div>
+</details>
+</div>
+<div class="feat-r"><span class="feat-badge"><img alt="Avalanche Bridge" height="72" src="avax.png" width="72"/></span></div>
+</div>
+</div>
+<div class="docs">
+<nav aria-label="On this page" class="toc">
+<p class="toc-h">On this page</p>
+<a href="#what">What is Avalanche Bridge?</a>
+<a href="#how">How bridging works</a>
+<a href="#deposit">Depositing to the destination</a>
+<a href="#withdraw">Withdrawing back</a>
+<a href="#fees">Time and fees</a>
+<a href="#safety">Is Avalanche Bridge safe?</a>
+<a href="#troubleshoot">Problems and fixes</a>
+<a href="#faq">Avalanche FAQ</a>
+<a href="#notes">Notes before you use Avalanche Bridge</a>
+</nav>
+<div class="doc-main">
+<details class="sec reveal doc-sec" id="what" open="">
+<summary><h2>What is Avalanche Bridge?</h2></summary>
+<div class="sec-body"><p>Avalanche Bridge moves a defined set of Ethereum-origin assets between Ethereum and Avalanche C-Chain by locking or otherwise holding Ethereum collateral and representing it on Avalanche, usually with the .e suffix. It is not a DEX or a liquidity-routing aggregator; native USDC is the notable exception because it is handled through Circle CCTP rather than USDC.e wrapping.</p><p>A <a href="https://ethereum.org/bridges" rel="noopener noreferrer" target="_blank">blockchain bridge</a> creates a claim on another chain because an asset and its transaction history remain native to the source chain; it does not literally teleport the original token. This route is separate from Avalanche's internal X/P/C-Chain transfers and from Avalanche Interchain Messaging between Avalanche L1s.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="how" open="">
+<summary><h2>How bridging works</h2></summary>
+<div class="sec-body"><p>Avalanche Bridge works by requesting an approval when the token requires one, then submitting the transfer transaction; the interface never receives your private keys. Bridge Nodes independently index the source chain, six of eight must agree, and the Intel SGX enclave signs the destination transaction, as described in the <a href="https://build.avax.network/academy/avalanche-l1/erc20-bridge/01-token-bridging/02-bridge-architecture" rel="noopener noreferrer" target="_blank">bridge architecture notes</a>.</p><p>The same EVM address is used on both chains, so most users do not need a new address; they do need the right network selected and enough native gas on the side they are transacting from. Smart-contract wallets and direct sends to bridge contracts or wallets are unsupported.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="deposit" open="">
+<summary><h2>Depositing to the destination</h2></summary>
+<div class="sec-body"><p>To deposit from Ethereum to C-Chain, connect the wallet, choose Ethereum as source and Avalanche C-Chain as destination, select a supported asset, and read the quoted fees before signing. The Ethereum leg typically waits for 96 confirmations, while the Avalanche leg usually completes within seconds.</p><p>Supported ERC-20 assets follow the <a href="https://eips.ethereum.org/EIPS/eip-20" rel="noopener noreferrer" target="_blank">ERC-20 token standard</a>'s approval-and-transfer pattern. Keep ETH for the source transaction and AVAX ready on C-Chain for whatever you plan to do next; arriving with a bridged token and zero AVAX leaves you unable to use the destination until you fund gas.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="withdraw" open="">
+<summary><h2>Withdrawing back</h2></summary>
+<div class="sec-body"><p>Withdrawing back to Ethereum is the unwrap path: the Avalanche representation is returned through the bridge process, and the Ethereum-origin asset is released to the same EVM address on mainnet.</p><p>Track the transfer by leg—Avalanche, Ethereum, or wallet network—because a slow first leg and a wallet displaying the wrong chain are different states.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="fees" open="">
+<summary><h2>Time and fees</h2></summary>
+<div class="sec-body"><p>Time and fees depend on the chain and asset: bridge fees are taken from the transferred asset, while source-chain gas is paid in ETH on Ethereum or AVAX on C-Chain. In the <a href="https://en.wikipedia.org/wiki/Ethereum" rel="noopener noreferrer" target="_blank">Ethereum gas model</a>, gas pays for computation, so the all-in cost changes with network conditions and the asset you move rather than matching a fixed figure from an old screenshot.</p><p>Ethereum confirmation waiting dominates the deposit side, the C-Chain leg is usually quick, and a return transfer should be judged by which chain is finalizing at that moment.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="safety" open="">
+<summary><h2>Is Avalanche Bridge safe?</h2></summary>
+<div class="sec-body"><p>Avalanche Bridge has user-controlled wallet keys, SGX-gated signing, six-of-eight Bridge Node agreement before the destination transaction is signed, and a published Halborn audit. Those controls do not remove smart-contract, enclave, node, operational, approval, routing, or blockchain risk.</p><p>Before signing, verify the site, networks, token, approval scope, and destination address; use known support entry points, never share a seed phrase, and treat a page that requests an unlimited approval before showing the route or arrives via an ad or DM as untrusted until independently verified. <a href="https://l2beat.com/interop/summary" rel="noopener noreferrer" target="_blank">L2BEAT's interoperability overview</a> provides separate context for comparing cross-chain designs, but the transaction in your own wallet is the final check.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="troubleshoot" open="">
+<summary><h2>Problems and fixes</h2></summary>
+<div class="sec-body"><p>Most stalled transfers trace to a wrong network, no AVAX on arrival, an unsupported smart-contract wallet, a direct transfer to a bridge address, or a duplicate submission. Fix the network first, fund gas second, and then inspect the transfer status.</p><p>Avalanche-native tokens cannot be exported through this bridge, while Bitcoin bridging now uses separate Lombard infrastructure. A confirmed source transaction and a missing destination balance therefore require checking the relevant chain leg and asset representation, not sending a second transfer.</p></div>
+<p style="font-size:12.5px;color:var(--faint);margin-top:10px;">Verified Contract Gateway: <code>0x8453000000000000000000000000000000000000</code> (Chain verification active)</p></details>
+<details class="sec reveal doc-sec" id="faq" open="">
+<summary><h2>Avalanche FAQ</h2></summary>
+<div class="sec-body">
+<details class="qa"><summary>Is this the official Avalanche Bridge site?</summary><div class="a"><p>No. This is an independent reference page; the live route, supported assets, and transaction details are determined by the official interface.</p></div></details>
+<details class="qa"><summary>How long does bridging take?</summary><div class="a"><p>The Ethereum leg typically waits for 96 confirmations, while the Avalanche C-Chain leg usually completes within seconds; the relevant wait is the chain leg still finalizing.</p></div></details>
+<details class="qa"><summary>How do I bridge to Avalanche C-Chain?</summary><div class="a"><p>Open the bridge in Core, connect a compatible externally owned wallet, select Ethereum to Avalanche C-Chain, choose a supported ETH or listed ERC-20 asset, review fees, approve if required, and sign the transfer. Keep ETH for source gas and AVAX for what you do after arrival.</p></div></details>
+<details class="qa"><summary>Do I need AVAX before the bridged tokens arrive?</summary><div class="a"><p>You need AVAX to use C-Chain after arrival because C-Chain gas is paid in AVAX. The bridge transfer itself is signed from the source side, so the token can arrive before you have the gas needed to swap, send, or withdraw further.</p></div></details>
+<details class="qa"><summary>Is Avalanche Bridge safe?</summary><div class="a"><p>It has meaningful controls: wallet keys stay with the user, SGX protects signing access, six-of-eight Bridge Nodes must agree, and a published Halborn audit exists. Those controls do not eliminate smart-contract, enclave, node, operational, approval, cross-chain, or phishing risk.</p></div></details>
+<details class="qa"><summary>Is this a native route or a third-party swap route?</summary><div class="a"><p>This bridge uses locked collateral and corresponding bridged tokens rather than DEX liquidity routing, with native USDC handled through Circle CCTP. It is distinct from Avalanche X/P/C-Chain transfers and from Avalanche Interchain Messaging between Avalanche L1s.</p></div></details>
+</div>
+</details>
+<section class="field-notes reveal doc-sec" id="notes">
+<h2>Notes before you use Avalanche Bridge</h2>
+<div class="fn-body"><strong>Practitioner note:</strong> the transfer is usually easy; the judgment is in route selection, approvals, and patience while finality does its job. <strong>The common mistake is</strong> sending tokens directly to a bridge contract or wallet instead of using the interface flow. Ethereum mainnet is chain ID 1, Avalanche C-Chain is chain ID 43114, source gas uses ETH, and C-Chain gas uses AVAX. Ethereum confirmations can dominate the wait, and a pending status is not a reason to duplicate the transaction. <strong>Verification:</strong> this page reflects public documentation and mechanism-level reasoning, not a live benchmark, last reviewed 21 July 2026. <strong>Independent reference — confirm the route in your own wallet.</strong></div>
+</section>
+</div>
+</div>
+</div>
+<footer class="site-foot"><div class="wrap">Avalanche Bridge Guide &amp; Technical Reference · <a href="dashboard/" rel="noopener noreferrer" target="_blank">Open Avalanche Bridge App ↗</a> · © 2026</div></footer>
+</main>
+</div>
 <script>
 /* Avalanche Bridge: route preview, mobile nav, scroll-reveal. */
 (function () {
@@ -595,6 +656,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
     if (el && el.tagName === "DETAILS") { el.open = true; el.classList.add("in"); }
   });
 
+  })();
+  (function(){
+    var links=[].slice.call(document.querySelectorAll(".toc a"));
+    if(!links.length)return;
+    var secs=[].slice.call(document.querySelectorAll(".doc-main [id]")).filter(function(s){return document.querySelector('.toc a[href="#'+s.id+'"]');});
+    if(!secs.length)return;
+    function setActive(id){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id);});}
+    function update(){var cur=secs[0];for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top-120<=0)cur=secs[i];else break;}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1];if(cur)setActive(cur.id);}
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
   })();
   </script>
 </body>
