@@ -1,0 +1,3 @@
+# How to Bridge Assets to Avalanche
+
+How to bridge assets to Avalanche: pick a route, add the C-Chain to your wallet, send ETH, USDC or stablecoins, and grab AVAX for gas when they land.

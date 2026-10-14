@@ -1,0 +1,3 @@
+# Is Avalanche an ERC20 Token
+
+Is Avalanche an ERC20 token? No — native AVAX is the coin of the Avalanche network, not an ERC-20. Here is how wrapped AVAX and C-Chain tokens differ.

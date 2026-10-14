@@ -1,0 +1,3 @@
+# Avalanche C-Chain Bridge
+
+An Avalanche C-Chain bridge moves assets onto the EVM contract chain (Chain ID 43114) where you pay gas in AVAX. Compare official, aggregator and CEX routes before you send.
