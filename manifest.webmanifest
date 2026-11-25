@@ -1,0 +1,1 @@
+{"name":"Avalanche Bridge","short_name":"Avalanche Bridge","description":"Avalanche Bridge interface to move ETH, USDC, USDT and BTC.b between Ethereum and Avalanche C-Chain. Non-custodial: you sign from your own wallet.","start_url":"/","display":"standalone","background_color":"#f7f5f5","theme_color":"#f7f5f5","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml"}]}
