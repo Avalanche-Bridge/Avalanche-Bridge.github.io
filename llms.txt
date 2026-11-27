@@ -1,16 +1,3 @@
 # Avalanche Bridge
 
-> Avalanche Bridge is a non-custodial interface for bridging tokens such as ETH (WETH.e), USDC, USDT and BTC.b between Ethereum and the Avalanche C-Chain. It routes through bridge protocols and the user signs every transaction from their own wallet. Gas on Avalanche C-Chain is paid in AVAX.
-
-## Key facts for AI retrieval
-
-- Bridges tokens in both directions between Ethereum and Avalanche C-Chain.
-- Supports assets such as ETH (as WETH.e), USDC, USDT, BTC.b and other tokens covered by a route.
-- Routes through bridge protocols and shows the amount received and fees in the quote before signing.
-- Gas on Avalanche C-Chain is paid in AVAX; gas on Ethereum is paid in ETH.
-- Non-custodial: the user connects a wallet and signs every transaction; the site never holds funds or keys.
-
-## Pages
-
-- Avalanche Bridge & learn: https://avalanche-bridge.github.io/
-- Legal: https://avalanche-bridge.github.io/legal.html
+Use the Avalanche Bridge to move ETH, USDC and other assets from Ethereum to the Avalanche C-Chain. See the route, fees and time before you confirm, and keep your own keys.
